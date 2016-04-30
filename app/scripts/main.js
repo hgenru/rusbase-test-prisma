@@ -26,10 +26,11 @@
     }
 
     QuestionViewModel.prototype.selectAnswer = function(answerIndex) {
-        console.log('wtf', answerIndex)
         this.selected(answerIndex);
     };
 
+    //
+    //
     function AppViewModel() {
         this.currentPage = ko.observable('main');
 
@@ -37,7 +38,19 @@
         this.questions = ko.observableArray(window.DATA.map(function(q) {
             return new QuestionViewModel(q);
         }));
+
+        this.correctAnswersCount = ko.observable(0);
     }
+
+    AppViewModel.prototype.finish = function() {
+        var questions = ko.unwrap(this.questions);
+        var correctAnswersCount = questions.reduce(function(prev, question) {
+            var value = question.answerIsCorrect() ? 1 : 0;
+            return prev + value;
+        }, 0);
+        this.correctAnswersCount(correctAnswersCount);
+        this.currentPage('result');
+    };
 
     window.m_site = new AppViewModel();
     ko.applyBindings(window.m_site);

@@ -199,7 +199,12 @@ body *
     opacity: 0.5;
 }
 
-.quiz__answer--selected
+.quiz__answer--wrong
+{
+    color: red;
+}
+
+.quiz__answer--correct
 {
     color: green;
 }
