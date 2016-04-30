@@ -75,10 +75,10 @@
                         </div>
                         <!-- ko if: isSelected -->
                             <!-- ko if: ($index() + 1) < ko.unwrap($root.questions).length -->
-                            <button class="quiz-next-button" type="button" data-bind="click: function() {$root.currentQuestion($index() + 1);}">далее</button>
+                            <button tabindex="-1" class="quiz-next-button" type="button" data-bind="click: function() {$root.currentQuestion($index() + 1);}">далее</button>
                             <!-- /ko -->
                             <!-- ko if: ($index() + 1) === ko.unwrap($root.questions).length -->
-                            <button class="quiz-next-button" type="button" data-bind="click: function() {$root.finish();}">кончить</button>
+                            <button tabindex="-1" class="quiz-next-button" type="button" data-bind="click: function() {$root.finish();}">кончить</button>
                             <!-- /ko -->
                         <!-- /ko -->
                     </div>
