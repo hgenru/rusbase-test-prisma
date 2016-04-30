@@ -30,14 +30,16 @@
 
     <div class="wrap-center wrap-margin-top">
         <div class="wrap-center__col">
-            <button class="main-action-button" type="button" name="button">Готов!</button>
+            <button class="main-action-button" type="button" data-bind="click: function() {
+                $root.currentPage('quiz');
+            }">Готов!</button>
         </div>
     </div>
 </section>
 
 <section class="page page--quiz" data-bind="visible: currentPage() === 'quiz'" style="display: none">
     <div class="content-wrapper">
-        <section class="quiz-container" style="opacity: 0" data-bind="style: {opacity: inited() ? 1 : 0}">
+        <section class="quiz-container">
             <div class="quiz-wrap" data-bind="
             style: {transform: 'translateX(-'+ currentQuestion() * 100 +'%)'},
             foreach: questions
