@@ -192,3 +192,14 @@ body *
     overflow: hidden;
     white-space: normal;
 }
+
+.quiz__answers--disabled
+{
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.quiz__answer--selected
+{
+    color: green;
+}
