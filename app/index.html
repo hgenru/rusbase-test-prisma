@@ -65,8 +65,8 @@
                                 css: {
                                     'quiz__answer-button--wrong': $parent.selected() === $index() &&
                                         !$parent.answerIsCorrect(),
-                                    'quiz__answer-button--correct': $parent.selected() === $index() &&
-                                        $parent.answerIsCorrect()
+                                    'quiz__answer-button--correct': $index() === $parent.correct_answer &&
+                                        $parent.isSelected()
                                 },
                                 click: function() {$parent.selectAnswer($index());},
                                 text: $data
