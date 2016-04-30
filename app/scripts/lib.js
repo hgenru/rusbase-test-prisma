@@ -22,3 +22,7 @@ function modelExtend(modelObject, data) {
         }
     });
 }
+
+function getRootULR() {
+    return location.protocol + '//' + location.host;
+}

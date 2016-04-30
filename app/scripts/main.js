@@ -1,7 +1,9 @@
 (function() {
     'use strict';
     var ko = window.ko;
+    var Ya = window.Ya;
     var modelExtend = window.modelExtend;
+    var getRootULR = window.getRootULR;
 
     function QuestionViewModel(props) {
         this.title = null;
@@ -42,6 +44,16 @@
         this.correctAnswersCount = ko.observable(0);
     }
 
+    AppViewModel.prototype.init = function() {
+        this.share = Ya.share2('yandex-share', {
+            theme: {
+                services: 'vkontakte,facebook,twitter',
+                counter: true,
+                lang: 'ru'
+            }
+        });
+    };
+
     AppViewModel.prototype.finish = function() {
         var questions = ko.unwrap(this.questions);
         var correctAnswersCount = questions.reduce(function(prev, question) {
@@ -50,8 +62,14 @@
         }, 0);
         this.correctAnswersCount(correctAnswersCount);
         this.currentPage('result');
+        this.share.updateContent({
+            title: 'Shiny share button',
+            description: 'To rule them all',
+            image: 'https://pp.vk.me/c629420/v629420694/4a4ad/4gmusyvxi8g.jpg'
+        });
     };
 
     window.m_site = new AppViewModel();
+    window.m_site.init();
     ko.applyBindings(window.m_site);
 })();
