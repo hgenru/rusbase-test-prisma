@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8">
+    <title>Всё идёт по плану</title>
+    <link rel="stylesheet" href="styles/grid.css">
+    <link rel="stylesheet" href="styles/index.css">
+
+    <!-- fonts -->
+    <link rel="stylesheet" href="fonts/Furore/Furore.css">
+</head>
+<body>
+
+<section class="page page--main" data-bind="visible: currentPage() === 'main'">
+    <h1 class="header">Эй, товарищ, не&nbsp;зевай!<br>Пройди тест на первомай!</h1>
+
+    <div class="wrap-center">
+        <div class="wrap-center__col">
+            <div class="soviet-hammer-and-sickle">
+                <div class="sunburst">
+                    <div class="sunburst__outer">
+                        <b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b>
+                    </div>
+                </div>
+                <img class="soviet-hammer-and-sickle__picture" src="resources/pictures/communist-star.svg"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrap-center wrap-margin-top">
+        <div class="wrap-center__col">
+            <button class="main-action-button" type="button" name="button">Готов!</button>
+        </div>
+    </div>
+</section>
+
+<section class="page page--quiz" data-bind="visible: currentPage() === 'quiz'" style="display: none">
+    <div class="content-wrapper">
+        <section class="quiz-container" style="opacity: 0" data-bind="style: {opacity: inited() ? 1 : 0}">
+            <div class="quiz-wrap" data-bind="
+            style: {transform: 'translateX(-'+ currentQuestion() * 100 +'%)'},
+            foreach: questions
+            ">
+            <div class="quiz-item" data-bind="">
+                <h3 data-bind="text: title"></h3>
+                <div class="wrap wrap--xl-flexbox wrap--sm-1 wrap--xl-2 wrap--sm-top" data-bind="foreach: answers">
+                    <div class="quiz__answer-wrap wrap__col wrap__col--sm-1-1 wrap__col--xl-1-2" data-bind="
+                    css: {'quiz__answer--selected': $parent.selected() === subject},
+                    click: function() {$root.selectAnswer($parent, subject);}
+                    ">
+                    <div class="quiz__answer-wrap-wrap">
+                        <div class="quiz__answer"><span class="quiz__answer-text" data-bind="html: text"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+</section>
+
+<!-- js:polifyls -->
+<script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/es6-promise/3.0.2/es6-promise.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fetch/0.10.1/fetch.min.js"></script>
+
+<!-- js:vendor -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+
+<!-- js:main -->
+<script src="scripts/main.js"></script>
+
+</body>
+</html>

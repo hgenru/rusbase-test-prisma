@@ -1,0 +1,8 @@
+node_modules
+npm-debug.log
+shape_predictor_68_face_landmarks.dat
+config.json
+
+# Python
+*.pyc
+__pycache__
