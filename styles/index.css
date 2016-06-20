@@ -1,0 +1,234 @@
+body
+{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    font-family: 'Sans'
+}
+
+body *
+{
+    box-sizing: border-box;
+}
+
+p
+{
+    padding: 0 5px;
+}
+
+.wrap-center
+{
+    text-align: center;
+}
+
+.wrap-center__col
+{
+    display: inline-block;
+}
+
+.wrap-margin-top
+{
+    margin-top: 2em;
+}
+
+.content
+{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.page
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.page--scroll
+{
+    overflow-y: scroll;
+}
+
+.header
+{
+    font-size: 3em;
+    line-height: 1.5em;
+    text-align: center;
+}
+
+.result-text
+{
+    font-size: 1em;
+    text-align: center;
+}
+
+.main-action-button
+{
+    font-size: 3em;
+    background: white;
+    border: 2px solid;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    outline: none;
+    box-shadow: 3px 3px black;
+    width: 99%;
+    width: calc(100% - 15px);
+    margin: 0 5px;
+    margin-bottom: 10px;
+}
+
+.main-action-button:hover
+{
+     box-shadow: 5px 5px black;
+}
+
+.main-action-button:active
+{
+     color: #CC0000;
+}
+
+
+
+
+/* QUIZ */
+.quiz-container
+{
+    transition: opacity 0.5s;
+    transition-delay: 0.2s;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.quiz-wrap
+{
+    transition: transform 0.4s ease-out;
+    transition-delay: 0.2s;
+    font-size: 0;
+}
+
+.quiz-wrap > *
+{
+    font-size: initial;
+}
+
+.quiz-item
+{
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+    white-space: normal;
+}
+
+.quiz-item--disabled
+{
+    pointer-events: none;
+    -moz-user-focus: ignore;
+    user-focus: ignore;
+}
+
+.quiz__answers
+{
+    padding: 0 5px;
+}
+
+.quiz__answers--disabled
+{
+    pointer-events: none;
+}
+
+.quiz__answers--disabled img
+{
+    opacity: 0.3;
+}
+
+.quiz__answer
+{
+    cursor: pointer;
+}
+
+.quiz__answer > img
+{
+    border: 5px solid black;
+    width: 100%;
+}
+
+.quiz__answer:hover > img
+{
+    box-shadow: 3px 3px black;
+}
+
+.quiz__answer--wrong > img
+{
+    border-color: red;
+}
+
+.quiz__answer--correct > img
+{
+    border-color: green;
+}
+
+.quiz__answer--correct::before,
+.quiz__answer--wrong::before
+{
+    display: block;
+    position: absolute;
+    text-align: center;
+    font-size: 2em;
+    margin: 40px 0 0 20px;
+    color: black;
+    font-weight: bold;
+}
+
+.quiz__answer--correct::before
+{
+    content: "prisma";
+}
+
+.quiz__answer--wrong::before
+{
+    content: "photoshop";
+}
+
+.quiz-next-button
+{
+    font-size: 1.5em;
+    margin-left: 5px;
+}
+
+.quiz-image
+{
+    max-width: 100%;
+    max-height: 90vh;
+}
+
+/*MEDIA*/
+@media screen and (max-width: 600px) {
+    .header
+    {
+        font-size: 2em;
+        margin: 0;
+    }
+
+    .result-text
+    {
+        font-size: 1em;
+        margin: 0;
+    }
+
+    .wrap-margin-top
+    {
+        margin-top: 5px;
+    }
+
+    .quiz-header
+    {
+        margin: 5px;
+    }
+}
