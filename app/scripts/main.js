@@ -58,33 +58,33 @@
     };
 
     AppViewModel.prototype.getPicture = function(correct, questionsCount) {
-        if (correct === questionsCount) {
-            return 'https://pp.vk.me/c629420/v629420694/4a665/tGwTC5Eom4g.jpg';
-        } else if (correct > (questionsCount / 2)) {
-            return 'https://pp.vk.me/c629420/v629420694/4a629/S488sz5rX8A.jpg';
+        var root = location.protocol + '//' +
+            location.host + '/' + window.location.pathname;
+        if (correct < (questionsCount / 2)) {
+            return root + '/resources/pictures/result-share-4-less.jpg';
         } else {
-            return 'https://pp.vk.me/c629420/v629420694/4a620/-zvo5kKiHP4.jpg';
+            return root + '/resources/pictures/result-share-5-more.jpg';
         }
     };
 
     AppViewModel.prototype.getText = function(correct, questionsCount) {
-        if (correct === questionsCount) {
-            return 'Вы — превосходный труженник!';
-        } else if (correct > (questionsCount / 2)) {
-            return 'Вы — ударник социалистического труда!';
-        } else {
-            return 'Сталина на вас нет!';
-        }
+        return this.getTextForShare(correct, questionsCount);
     };
 
     AppViewModel.prototype.getTextForShare = function(correct, questionsCount) {
-        if (correct === questionsCount) {
-            return 'Я — превосходный труженник!';
-        } else if (correct > (questionsCount / 2)) {
-            return 'Я — ударник социалистического труда!';
-        } else {
-            return 'Сталина на меня нет!';
-        }
+        var titles = [
+            'Даже случайно не попали? Да быть не может!',
+            'Вам, наверное, все равно — Призма, Фотошоп или вообще Пэйнт.',
+            'Но ведь… ведь Prisma старалась…',
+            'Не рассказывайте об этом создателям Prisma.',
+            'Фотошоп вас вдохновляет больше.',
+            'Prisma вас вдохновляет больше, чем фотошоп.',
+            'Вас не проведешь. Ну почти.',
+            'Давайте скажем Prisma «спасибо» за классное приложение!',
+            'Признавайтесь, в чем вы так хорошо разбираетесь: в искусстве или в нейронных сетях?',
+            'Да вы просто мастер по нейронным сетям! Попробуйте выпустить собственное приложение :)'
+        ];
+        return titles[correct];
     };
 
     AppViewModel.prototype.finish = function() {
@@ -105,9 +105,9 @@
         this.correctAnswersCount(correctAnswersCount);
         this.currentPage('result');
         this.share.updateContent({
-            title: shareText + ' ' +
+            title: 'Призма или фотошоп? ' +
                 correctAnswersCount + ' из ' + questions.length,
-            description: 'Пройди тест на знание советских плакатов и ты!',
+            description: shareText,
             image: resultPicture
         });
     };

@@ -4,11 +4,17 @@ body
     height: 100%;
     overflow: hidden;
     margin: 0;
+    font-family: 'Sans'
 }
 
 body *
 {
     box-sizing: border-box;
+}
+
+p
+{
+    padding: 0 5px;
 }
 
 .wrap-center
@@ -28,7 +34,7 @@ body *
 
 .content
 {
-    max-width: 960px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -48,84 +54,19 @@ body *
 
 .header
 {
-    font-family: 'FuroreRegular';
     font-size: 3em;
     line-height: 1.5em;
     text-align: center;
-    text-shadow: 3px 3px white;
 }
 
-.sunburst
+.result-text
 {
-    position: absolute;
-    transform: translate3d(-50%, 0, 0);
-    z-index: -1;
-}
-
-.sunburst__outer
-{
-    margin: 190px 0 0 190px;
-    animation-name: sun-rotate;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
-.sunburst b
-{
-    display: block;
-    width: 0;
-    height: 0;
-    border-width: 90px 1000px;
-    margin: -180px 0 0 0;
-    border-color: transparent #CC0000;
-    border-style: solid;
-}
-
-.sunburst b:nth-child(1) {
-    transform: rotate(20deg);
-} .sunburst b:nth-child(2) {
-    transform: rotate(40deg);
-} .sunburst b:nth-child(3) {
-    transform: rotate(60deg);
-} .sunburst b:nth-child(4) {
-    transform: rotate(80deg);
-} .sunburst b:nth-child(5) {
-    transform: rotate(100deg);
-} .sunburst b:nth-child(6) {
-    transform: rotate(120deg);
-} .sunburst b:nth-child(7) {
-    transform: rotate(140deg);
-} .sunburst b:nth-child(8) {
-    transform: rotate(160deg);
-} .sunburst b:nth-child(9) {
-    transform: rotate(180deg);
-}
-
-@keyframes sun-rotate {
-    from { -webkit-transform: rotate(0deg); }
-    to { -webkit-transform: rotate(20deg); }
-}
-
-.soviet-hammer-and-sickle
-{
-    border-radius: 50%;
-    background: white;
-    width: 12em;
-    height: 12em;
-    line-height: 11em;
-}
-
-.soviet-hammer-and-sickle__picture
-{
-    width: 10em;
-    height: 10em;
-    vertical-align: middle;
+    font-size: 1em;
+    text-align: center;
 }
 
 .main-action-button
 {
-    font-family: 'FuroreRegular';
     font-size: 3em;
     background: white;
     border: 2px solid;
@@ -135,6 +76,10 @@ body *
     user-select: none;
     outline: none;
     box-shadow: 3px 3px black;
+    width: 99%;
+    width: calc(100% - 15px);
+    margin: 0 5px;
+    margin-bottom: 10px;
 }
 
 .main-action-button:hover
@@ -196,35 +141,59 @@ body *
 .quiz__answers--disabled
 {
     pointer-events: none;
-    opacity: 0.5;
 }
 
-.quiz__answer-button
+.quiz__answers--disabled img
 {
-    font-size: 2em;
-    width: 100%;
-    border: 2px solid;
-    margin-bottom: 5px;
-    padding: 0 5px;
-    text-align: left;
-    background: transparent;
-    cursor: pointer;
-    outline: none;
+    opacity: 0.3;
 }
 
-.quiz__answer-button:hover
+.quiz__answer
+{
+    cursor: pointer;
+}
+
+.quiz__answer > img
+{
+    border: 5px solid black;
+    width: 100%;
+}
+
+.quiz__answer:hover > img
 {
     box-shadow: 3px 3px black;
 }
 
-.quiz__answer-button--wrong
+.quiz__answer--wrong > img
 {
-    color: red;
+    border-color: red;
 }
 
-.quiz__answer-button--correct
+.quiz__answer--correct > img
 {
-    color: green;
+    border-color: green;
+}
+
+.quiz__answer--correct::before,
+.quiz__answer--wrong::before
+{
+    display: block;
+    position: absolute;
+    text-align: center;
+    font-size: 2em;
+    margin: 40px 0 0 20px;
+    color: black;
+    font-weight: bold;
+}
+
+.quiz__answer--correct::before
+{
+    content: "prisma";
+}
+
+.quiz__answer--wrong::before
+{
+    content: "photoshop";
 }
 
 .quiz-next-button
@@ -244,6 +213,12 @@ body *
     .header
     {
         font-size: 2em;
+        margin: 0;
+    }
+
+    .result-text
+    {
+        font-size: 1em;
         margin: 0;
     }
 
