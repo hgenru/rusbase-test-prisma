@@ -65,7 +65,10 @@
         <h3 class="quiz-header">Какое изображение обработано с помощью Prisma?</h3>
         <section class="quiz-container">
             <div class="quiz-wrap" data-bind="
-            style: {transform: 'translateX(-'+ currentQuestion() * 100 +'%)'},
+            style: {
+                transform: 'translateX(-'+ currentQuestion() * 100 +'%)',
+                '-webkit-transform': 'translateX(-'+ currentQuestion() * 100 +'%)'
+            },
             foreach: questions
             ">
                 <div class="quiz-item" data-bind="
