@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "./node_modules/gh-pages/bin/gh-pages -d app -r git@github.com:sudoobey/rusbase-test-1-may.git"
+    "deploy": "./node_modules/gh-pages/bin/gh-pages -d app -r git@github.com:sudoobey/rusbase-test-prisma.git"
   },
   "author": "",
   "license": "ISC",
